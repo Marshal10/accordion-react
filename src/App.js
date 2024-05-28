@@ -23,7 +23,7 @@ export default function App() {
 
 function Accordion() {
   return (
-    <div className="Accordion">
+    <div className="accordion">
       {faqs.map((faq, i) => (
         <AccordionItem faq={faq} index={i} key={i} />
       ))}
@@ -35,9 +35,9 @@ function AccordionItem({ faq, index }) {
   return (
     <div className="item">
       <div className="question">
-        <span>0{index + 1}</span>
-        <span className="question">{faq.title}</span>
-        <span>+</span>
+        <span className="number">0{index + 1}</span>
+        <span className="title">{faq.title}</span>
+        <span className="icon">+</span>
       </div>
       <div className="answer">
         <p>{faq.text}</p>
