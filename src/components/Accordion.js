@@ -1,5 +1,5 @@
 import AccordionItem from "../AccordionItem";
-
+import { useState } from "react";
 const faqs = [
   {
     title: "Where are these chairs assembled?",
@@ -16,10 +16,19 @@ const faqs = [
 ];
 
 export default function Accordion() {
+  const [curOpen, setCurOpen] = useState(null);
   return (
     <div className="accordion">
       {faqs.map((faq, i) => (
-        <AccordionItem faq={faq} index={i} key={i} />
+        <AccordionItem
+          faq={faq}
+          index={i}
+          key={i}
+          curOpen={curOpen}
+          onOpen={setCurOpen}
+        >
+          {faq.text}
+        </AccordionItem>
       ))}
     </div>
   );

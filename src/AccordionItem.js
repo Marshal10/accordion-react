@@ -1,8 +1,13 @@
-import { useState } from "react";
-export default function AccordionItem({ faq, index }) {
-  const [open, setOpen] = useState(false);
+export default function AccordionItem({
+  faq,
+  index,
+  onOpen,
+  curOpen,
+  children,
+}) {
+  const open = index === curOpen;
   function toggleAnswer() {
-    setOpen((o) => (o = !o));
+    onOpen(open ? null : index);
   }
 
   return (
@@ -13,7 +18,7 @@ export default function AccordionItem({ faq, index }) {
         <span className="icon">{open ? "-" : "+"}</span>
       </div>
       <div className="answer">
-        <p>{faq.text}</p>
+        <p>{children}</p>
       </div>
     </div>
   );
