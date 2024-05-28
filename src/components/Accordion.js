@@ -1,4 +1,5 @@
-import { useState } from "react";
+import AccordionItem from "../AccordionItem";
+
 const faqs = [
   {
     title: "Where are these chairs assembled?",
@@ -14,40 +15,12 @@ const faqs = [
   },
 ];
 
-export default function App() {
-  return (
-    <div className="App">
-      <Accordion />
-    </div>
-  );
-}
-
-function Accordion() {
+export default function Accordion() {
   return (
     <div className="accordion">
       {faqs.map((faq, i) => (
         <AccordionItem faq={faq} index={i} key={i} />
       ))}
-    </div>
-  );
-}
-
-function AccordionItem({ faq, index }) {
-  const [open, setOpen] = useState(false);
-  function toggleAnswer() {
-    setOpen((o) => (o = !o));
-  }
-
-  return (
-    <div className={open ? "item open" : "item"} onClick={toggleAnswer}>
-      <div className="question">
-        <span className="number">0{index + 1}</span>
-        <span className="title">{faq.title}</span>
-        <span className="icon">{open ? "-" : "+"}</span>
-      </div>
-      <div className="answer">
-        <p>{faq.text}</p>
-      </div>
     </div>
   );
 }
