@@ -47,7 +47,7 @@ body {
 }
 
 .item .answer {
-  /* display: none; */
+  display: none;
   padding: 24px 38px;
   line-height: 1.6;
 }
@@ -59,4 +59,8 @@ body {
 .open .number,
 .open .title {
   color: #087f5b;
+}
+
+.item.open .answer {
+  display: flex;
 }
